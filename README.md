@@ -36,14 +36,14 @@ class SharedViewModel: ViewModel() {
 
 ### Call It from an Activity / a Fragment by Using ViewModelProvider
 ```
-    private val viewModel: SharedViewModel by lazy {
-        ViewModelProvider(this).get(SharedViewModel::class.java)
-    }
-    
-    viewModel.setText(editText.text.toString())
-    
-    viewModel.getText().observe(this, Observer<String> {
-        activity!!.editText.setText(it)
-    })
+private val viewModel: SharedViewModel by lazy {
+    ViewModelProvider(this).get(SharedViewModel::class.java)
+}
+
+viewModel.setText(editText.text.toString())
+
+viewModel.getText().observe(this, Observer<String> {
+    activity!!.editText.setText(it)
+})
 ```
 ViewModelProviders is [deprecated](https://developer.android.com/reference/androidx/lifecycle/ViewModelProviders).
