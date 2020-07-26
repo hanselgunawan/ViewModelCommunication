@@ -18,9 +18,10 @@ class FragmentA : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_a, container, false)
+    }
 
-        val view: View = inflater.inflate(R.layout.fragment_a, container, false)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         view.fragment_a_button.setOnClickListener(object: View.OnClickListener {
             override fun onClick(v: View?) {
                 viewModel.setText(fragment_a_edit_text.text.toString())
@@ -30,7 +31,5 @@ class FragmentA : Fragment() {
         viewModel.getText().observe(this, Observer {
             activity!!.fragment_b_edit_text.setText(it)
         })
-
-        return view
     }
 }
